@@ -92,3 +92,14 @@ class DataAnalyzer:
             plt.show()
 
         return outliers
+    
+    def process(self):
+        """
+        Ejecuta todos los pasos en orden y retorna el DataFrame procesado.
+        """
+        self.read_data()
+        self.summary_statistics()
+        self.handle_missing_values()
+        self.detect_price_outliers(method="iqr", plot=False)
+
+        return self.df
